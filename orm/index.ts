@@ -2,8 +2,10 @@ import express from 'express';
 import bodyParser from "body-parser";
 import router from "./src/router/router";
 import {AppDataSource} from "./src/data-source";
+import cors from "cors"
 
 const app = express();
+app.use(cors())
 
 AppDataSource.initialize().then(() => {
     console.log('Connect database success')
